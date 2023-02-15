@@ -1,0 +1,63 @@
+<div class="container">
+    <h1>Crear préstamo</h1>
+
+    <form>
+        <mat-form-field>
+            <mat-label>Identificador</mat-label>
+            <input type="number" matInput placeholder="Identificador" [(ngModel)]="loan.id" name="id" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Nombre del cliente</mat-label>
+            <mat-select disableRipple name="clientName" [(ngModel)]="loan.clientName">
+                <mat-option *ngFor="let client of clients" [value]="client.name">{{client.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Nombre del juego</mat-label>
+            <mat-select disableRipple name="gameName" [(ngModel)]="loan.gameName">
+                <mat-option *ngFor="let game of games" [value]="game.title">{{game.title}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- <div class="fechas">
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha de entrega</mat-label>
+                <input matInput [matDatepicker]="initialPicker" [(ngModel)]="loan.initialDate" name="initialDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="initialPicker"></mat-datepicker-toggle>
+                <mat-datepicker #initialPicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha de devolución</mat-label>
+                <input matInput [matDatepicker]="finalPicker" [(ngModel)]="loan.finalDate" name="finalDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="finalPicker"></mat-datepicker-toggle>
+                <mat-datepicker #finalPicker></mat-datepicker>
+            </mat-form-field>
+        </div> -->
+
+        <mat-form-field appearance="fill" class="example-form-field" id="datePicker">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="rangePicker">
+              <input matStartDate placeholder="Start date" [(ngModel)]="loan.initialDate" name="initialDate">
+              <input matEndDate placeholder="End date" [(ngModel)]="loan.finalDate" name="fianlDate">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #rangePicker>
+              <mat-date-range-picker-actions>
+                <button mat-button matDateRangePickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDateRangePickerApply (click)="onSaveDateRange()">Apply</button>
+              </mat-date-range-picker-actions>
+            </mat-date-range-picker>
+          </mat-form-field>
+    </form>
+
+    <div class="buttons">
+        <button mat-stroked-button (click)="onClose()">Cerrar</button>
+        <button mat-flat-button color="primary" (click)="onSave()">Guardar</button>
+    </div>
+</div>
