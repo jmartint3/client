@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoanListComponent } from './loan-list/loan-list.component';
+import { LoanSaveComponent } from './loan-save/loan-save.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -11,7 +12,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-import { LoanSaveComponent } from './loan-save/loan-save.component';
+import { MatButtonModule } from '@angular/material/button';
+
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 @NgModule({
@@ -30,7 +33,11 @@ import { LoanSaveComponent } from './loan-save/loan-save.component';
     MatInputModule,
     MatPaginatorModule,
     MatTableModule,
-    MatIconModule
-  ]
+    MatIconModule,
+    MatButtonModule
+  ],
+  providers: [{
+    provide: MAT_DATE_LOCALE, useValue: 'es-ES'
+  }]
 })
 export class LoanModule { }
