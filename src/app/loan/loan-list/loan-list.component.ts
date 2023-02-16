@@ -79,6 +79,10 @@ export class LoanListComponent implements OnInit {
 
 
     this.loanService.getLoans(pageable, gameName, clientName, loanDate).subscribe(data => {
+      data.content.map(loan => {
+        loan.initialDate = new Date(loan.initialDate)
+        loan.finalDate = new Date(loan.finalDate)
+      })
       this.dataSource.data = data.content;
       this.pageNumber = data.pageable.pageNumber;
       this.pageSize = data.pageable.pageSize;

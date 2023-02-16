@@ -51,12 +51,12 @@
 
             <ng-container matColumnDef="initialDate">
                 <mat-header-cell *matHeaderCellDef> Fecha de entrega </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.initialDate.split('T')[0]}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.initialDate.toLocaleDateString('es-ES')}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="finalDate">
                 <mat-header-cell *matHeaderCellDef> Fecha de devolución </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.finalDate.split('T')[0]}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.finalDate.toLocaleDateString('es-ES')}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="action">
