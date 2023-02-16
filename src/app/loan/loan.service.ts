@@ -41,7 +41,7 @@ export class LoanService {
     if (loanDate != null) {
       if (params != '') params += "&";
       //TODO revisar
-      loanDate.setDate(loanDate.getDate() + 1)
+      //loanDate.setDate(loanDate.getDate() + 1)
       params += 'loanDate=' + loanDate.toLocaleDateString();
     }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ClientService } from 'src/app/client/client.service';
 import { Client } from 'src/app/client/model/Client';
@@ -10,7 +11,10 @@ import { Loan } from '../model/Loan';
 @Component({
   selector: 'app-loan-save',
   templateUrl: './loan-save.component.html',
-  styleUrls: ['./loan-save.component.scss']
+  styleUrls: ['./loan-save.component.scss'],
+  providers: [{
+    provide: MAT_DATE_LOCALE, useValue: 'es-ES'
+  }]
 })
 export class LoanSaveComponent {
 

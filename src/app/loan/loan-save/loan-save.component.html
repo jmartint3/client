@@ -27,7 +27,7 @@
               <input matStartDate placeholder="Start date" [(ngModel)]="loan.initialDate" name="initialDate">
               <input matEndDate placeholder="End date" [(ngModel)]="loan.finalDate" name="fianlDate">
             </mat-date-range-input>
-            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-hint>DD/MM/AAAA – DD/MM/AAAA</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
             <mat-date-range-picker #rangePicker>
               <mat-date-range-picker-actions>

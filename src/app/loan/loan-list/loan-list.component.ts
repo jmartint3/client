@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,7 +16,10 @@ import { Loan } from '../model/Loan';
 @Component({
   selector: 'app-loan-list',
   templateUrl: './loan-list.component.html',
-  styleUrls: ['./loan-list.component.scss']
+  styleUrls: ['./loan-list.component.scss'],
+  providers: [{
+    provide: MAT_DATE_LOCALE, useValue: 'es-ES'
+  }]
 })
 export class LoanListComponent implements OnInit {
 
