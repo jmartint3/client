@@ -40,13 +40,12 @@ export class LoanSaveComponent {
   }
 
   onSave() {
-    try{
-      this.loanService.saveLoan(this.loan).subscribe(result => {
+    this.loanService.saveLoan(this.loan).subscribe(
+      result => {
         this.dialogRef.close();
-      });
-    } catch(error) {
-      alert(error.message);
-    }
+      },
+      error => { alert(error.error.error) }
+    );
   }
 
   onSaveDateRange() {
