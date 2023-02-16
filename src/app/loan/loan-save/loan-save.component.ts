@@ -44,7 +44,7 @@ export class LoanSaveComponent {
       result => {
         this.dialogRef.close();
       },
-      error => { alert(error.error.error) }
+      error => { alert(error.error.message) }
     );
   }
 
