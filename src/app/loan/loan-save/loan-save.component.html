@@ -21,26 +21,8 @@
             </mat-select>
         </mat-form-field>
 
-        <!-- <div class="fechas">
-            <mat-form-field appearance="fill">
-                <mat-label>Fecha de entrega</mat-label>
-                <input matInput [matDatepicker]="initialPicker" [(ngModel)]="loan.initialDate" name="initialDate">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="initialPicker"></mat-datepicker-toggle>
-                <mat-datepicker #initialPicker></mat-datepicker>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Fecha de devolución</mat-label>
-                <input matInput [matDatepicker]="finalPicker" [(ngModel)]="loan.finalDate" name="finalDate">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="finalPicker"></mat-datepicker-toggle>
-                <mat-datepicker #finalPicker></mat-datepicker>
-            </mat-form-field>
-        </div> -->
-
         <mat-form-field appearance="fill" class="example-form-field" id="datePicker">
-            <mat-label>Enter a date range</mat-label>
+            <mat-label>Enter a date range (max. 14 days)</mat-label>
             <mat-date-range-input [rangePicker]="rangePicker">
               <input matStartDate placeholder="Start date" [(ngModel)]="loan.initialDate" name="initialDate">
               <input matEndDate placeholder="End date" [(ngModel)]="loan.finalDate" name="fianlDate">
