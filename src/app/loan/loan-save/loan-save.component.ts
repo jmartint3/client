@@ -53,8 +53,8 @@ export class LoanSaveComponent {
     var diff = Math.abs(this.loan.finalDate.getTime() - this.loan.initialDate.getTime());
     var diffDays = Math.ceil(diff / (1000 * 3600 * 24));
 
-    if (this.loan.initialDate > this.loan.finalDate) { return; } //La fecha de fin NO podrá ser anterior a la fecha de inicio
-    else if (diffDays > 14) { //Período de préstamo máximo solo podrá ser de 14 días 
+    if (this.loan.initialDate > this.loan.finalDate) { return; }
+    else if (diffDays > 14) {
       alert('El período máximo es de 14 días.');
       this.loan.initialDate = null;
       this.loan.finalDate = null;
