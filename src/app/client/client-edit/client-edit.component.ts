@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ClientService } from '../client.service';
 import { Client } from '../model/Client';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-client-edit',
@@ -16,6 +17,7 @@ export class ClientEditComponent implements OnInit{
     public dialogRef: MatDialogRef<ClientEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private clientService: ClientService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class ClientEditComponent implements OnInit{
       result => {
       this.dialogRef.close();
       },
-      error => {alert(error.error.message)}
+      error => { this._snackBar.open(error.error.message, 'Aceptar')}
     );    
   }
 

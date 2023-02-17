@@ -7,6 +7,7 @@ import { GameService } from 'src/app/game/game.service';
 import { Game } from 'src/app/game/model/Game';
 import { LoanService } from '../loan.service';
 import { Loan } from '../model/Loan';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-loan-save',
@@ -26,7 +27,8 @@ export class LoanSaveComponent {
     public dialogRef: MatDialogRef<LoanSaveComponent>,
     private loanService: LoanService,
     private gameService: GameService,
-    private clientService: ClientService) {
+    private clientService: ClientService,
+    private _snackBar: MatSnackBar) {
 
     this.loan = new Loan();
 
@@ -44,7 +46,7 @@ export class LoanSaveComponent {
       result => {
         this.dialogRef.close();
       },
-      error => { alert(error.error.message) }
+      error => { this._snackBar.open(error.error.message, 'Aceptar') }
     );
   }
 
@@ -54,7 +56,7 @@ export class LoanSaveComponent {
 
     if (this.loan.initialDate > this.loan.finalDate) { return; }
     else if (diffDays > 14) {
-      alert('El período máximo es de 14 días.');
+      this._snackBar.open('El período máximo es de 14 días.', 'Aceptar');
       this.loan.initialDate = null;
       this.loan.finalDate = null;
       return;

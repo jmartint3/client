@@ -13,6 +13,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
@@ -34,7 +35,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MatPaginatorModule,
     MatTableModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [{
     provide: MAT_DATE_LOCALE, useValue: 'es-ES'
